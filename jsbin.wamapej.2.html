@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by AnikoBorosova (http://jsbin.com/wamapej/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta name="description" content="Responsive dynamic navbar with jQuery - horizontal push">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  position: relative;
+}
+
+/* MENU */
+
+.menu {
+  background-color: #202024;
+  left: -285px;
+  height: 100vh;
+  width: 285px;
+  position: fixed;
+}
+
+.menu ul {
+  border-top: 1px solid #636366;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #636366;
+  font-family: 'Poppins', sans-serif;
+  line-height: 45px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-top: 3px;
+}
+
+.menu a {
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.menu a:hover {
+  color: #808080;
+  transition: color .5s ease-in-out;
+}
+
+.icon-close {
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+/* HEADER */
+
+.header {
+  background-image: url('https://github.com/AnikoBorosova/Dynamic-collapsing-horizontal-navigation/blob/master/images/P1070153.JPG?raw=true'); 
+  background-size: cover;
+  height: 100vh;
+}
+
+.icon-menu {
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-top: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.icon-menu:hover {
+  color: #808080;
+  transition: color .5s ease-in-out;
+}
+
+.icon-menu i {
+  margin-right: 5px;
+}
+
+</style>
+</head>
+
+<body>
+
+  <!-- MENU -->
+
+  <div class="menu">
+    <div class="icon-close">
+      <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+    </div>
+    <ul>
+      <li><a href="#">About us</a>
+      </li>
+      <li><a href="#">Program</a>
+      </li>
+      <li><a href="#">Partners</a>
+      </li>
+      <li><a href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- HEADER -->
+
+  <div class="header">
+    <div class="icon-menu">
+      <i class="fa fa-bars"></i> Menu
+    </div>
+  </div>
+<script id="jsbin-javascript">
+var main = function() {
+  $('.icon-menu').click(function() {
+    $('.menu').animate({
+      left: '0px'
+    }, 200);
+
+    $('body').animate({
+      left: '285px'
+    }, 200);
+
+  });
+
+  $('.icon-close').click(function() {
+    $('.menu').animate({
+      left: '-285px'
+    }, 200);
+
+    $('body').animate({
+      left: '0px'
+    }, 200);
+  });
+};
+
+$(document).ready(main);
+</script>
+</body>
+
+</html>
